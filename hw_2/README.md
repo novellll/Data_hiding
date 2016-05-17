@@ -7,6 +7,10 @@
 	 
 ##Stochastic Modulation  
 * 利用高斯分佈產生的r與s，藉由parity function計算與隱藏機密資訊的值相同並將r或s加入該pixel，**可能會造成overflow**因此需要運算boundary來判斷。
+![PNG LSB replacement](https://github.com/x95102003/Data_hiding/blob/master/hw_2/analysis/lsb_png.png)
+![JPG LSB replacement](https://github.com/x95102003/Data_hiding/blob/master/hw_2/analysis/lsb_jpeg.png)
+![PNG of STM](https://github.com/x95102003/Data_hiding/blob/master/hw_2/analysis/STM_analysis_png.png)
+![PNG of STM](https://github.com/x95102003/Data_hiding/blob/master/hw_2/analysis/STM_analysis_jpeg.png)
 
 ###實作問題：
 1. 隨機產生的***message***與***walk***(pixel探索順序)，若是一樣的情況會造成Sample Pairs Analysis分析隱藏率下降。
