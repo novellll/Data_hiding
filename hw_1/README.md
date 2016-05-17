@@ -6,3 +6,7 @@
 ###實作問題：
 1. 隨機產生的***message***與***walk***(pixel探索順序)，若是一樣的情況會造成Sample Pairs Analysis分析隱藏率下降。
 2. putpixel會自動檢查overflow或underflow的情況，pixel > 255 則存255，同理則存0
+
+###實作結果：
+![Lena result](./Lena_result.tiff)
+![result_baboon.tiff](./result_baboon.tiff)
