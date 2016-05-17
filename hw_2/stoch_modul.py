@@ -19,13 +19,16 @@ def embedmsg(sed, im, perc):
     r = getGaussSeq(sed, size-1, 0, 1.5, 5)
     s = getGaussSeq(2+sed, size-1, 0, 1.5, 5)
     i = 0
+    # j is used to hide message when k = 0 and find next pos.
     j = 0
+    # Add 
     while i < len(se):
         while True:
             x = rand_list[i+j] / w
             y = rand_list[i+j] % w
             pixel = nim.getpixel((x, y))
             k = r[i+j] - s[i+j]
+            # k = 0 then pixel = x+r
             if not parity_func(pixel + r[i+j], k):
                 pixel = checkbound(pixel, r[i+j], k, se[i])
                 nim.putpixel((x,y), pixel)
@@ -62,6 +65,7 @@ def extractmsg(sed, im, perc):
             x = rand_list[i+j] / w
             y = rand_list[i+j] % w
             pixel = im.getpixel((x, y))
+            # k = 0 
             if not parity_func(pixel, r[i+j]-s[i+j]):
                 j += 1
                 continue
@@ -74,6 +78,7 @@ def extractmsg(sed, im, perc):
     print "Extract pixel:%d" %(i+j)
     print "Total:%d Extract Percent:%f" %(total, total/(size*perc))
 
+# check boundary with overflow and underflow 
 def checkbound(x, v, k, m):
     c = x + v
     flag = -1
@@ -100,6 +105,7 @@ def checkbound(x, v, k, m):
                 c += 1
     return c
 
+# get Gauss distrbution in range[-5,5]
 def getGaussSeq(sed,n, mean, var, bound):
     seed(sed)
     gausslist = []
@@ -115,6 +121,8 @@ def analyzeGauss(gausslist):
         a[i+5] += 1;
     return a
 
+# check message bit with ri and si
+# pixel x in which k-interval 
 def parity_func(x, k):
     m = pow(-1, k)
     if k == 0:

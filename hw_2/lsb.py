@@ -8,6 +8,8 @@ from smpl_anlz import show_analysis, sample_analyze
 import re
 import cv2
 secret = []
+
+# hide number of message with given image of percent 
 def lsb_replace(sed, im, perc):
     nim = im.copy()
     w,h = im.size
@@ -26,10 +28,12 @@ def lsb_replace(sed, im, perc):
     nim.save(path)      #profile needed to store otherwise the brightness would not same.
     return nim, path
 
+# get a size of unique random values in a list
 def random_walk(sed, im_size, msg_size):
     seed(sed+1)
     return sample(xrange(im_size), msg_size);
 
+# get a number of random values 0,1 or -1,1 with bool check
 def rand_sequece(sed, n, nonzero):
     seed(sed)
     if nonzero:

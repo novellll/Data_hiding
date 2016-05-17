@@ -7,6 +7,8 @@ from cmath import sqrt
 from fs import getallfile
 from re import search
 
+#Sample Pairs Analysis method
+
 def sample_analyze(im):
     d = divide_img(im)
     r = d['W'] + d['Z']
@@ -17,6 +19,7 @@ def sample_analyze(im):
     re2 = (-b - sqrt(pow(b, 2) - 2*r*c).real) / float(r)
     return max(0, min(re1, re2))
 
+#Divide image with pairs of two pixels
 def divide_img(im):
     d = {'X':0, 'W':0, 'V':0, 'Z':0}
     w, h = im.size
