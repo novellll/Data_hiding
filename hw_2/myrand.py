@@ -1,4 +1,4 @@
-from math import seed, sample, gauss, choice
+from random import seed, sample, gauss, choice
 
 
 # get a size of unique random values in a list
