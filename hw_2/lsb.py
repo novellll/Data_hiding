@@ -4,6 +4,7 @@
 from PIL import Image
 from random import choice, randint, seed, sample
 from fs import getallfile
+from myrand import random_walk, rand_sequece
 from smpl_anlz import show_analysis, sample_analyze 
 import re
 import cv2
@@ -27,19 +28,6 @@ def lsb_replace(sed, im, perc):
     path = 'result/' + im.format + '/' + str(perc) + '_' + fn 
     nim.save(path)      #profile needed to store otherwise the brightness would not same.
     return nim, path
-
-# get a size of unique random values in a list
-def random_walk(sed, im_size, msg_size):
-    seed(sed+1)
-    return sample(xrange(im_size), msg_size);
-
-# get a number of random values 0,1 or -1,1 with bool check
-def rand_sequece(sed, n, nonzero):
-    seed(sed)
-    if nonzero:
-        return [choice((-1,1)) for x in xrange(n)]
-    else:
-        return [choice((0,1)) for x in xrange(n)]
 
 def extratlsb(sed, im, perc):
     w,h = im.size

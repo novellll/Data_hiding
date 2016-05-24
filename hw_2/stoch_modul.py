@@ -1,9 +1,8 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
 
-from random import gauss, choice, seed
 from PIL import Image
-from lsb import random_walk, rand_sequece
+from myrand import random_walk, rand_sequece, getGaussSeq
 from fs import getallfile
 from smpl_anlz import show_analysis, sample_analyze 
 import re
@@ -104,22 +103,6 @@ def checkbound(x, v, k, m):
             else:
                 c += 1
     return c
-
-# get Gauss distrbution in range[-5,5]
-def getGaussSeq(sed,n, mean, var, bound):
-    seed(sed)
-    gausslist = []
-    while len(gausslist) < n:
-        num = round(gauss(mean, var))
-        if(num <= bound and num >= -bound):
-            gausslist.append(int(num))
-    return gausslist
-
-def analyzeGauss(gausslist):
-    a = [0]*11
-    for i in gausslist:
-        a[i+5] += 1;
-    return a
 
 # check message bit with ri and si
 # pixel x in which k-interval 
