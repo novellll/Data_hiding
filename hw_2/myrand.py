@@ -1,4 +1,4 @@
-from random import seed, sample, gauss, choice
+from random import seed, sample, choice, gauss
 
 
 # get a size of unique random values in a list
@@ -15,7 +15,7 @@ def rand_sequece(sed, n, nonzero):
         return [choice((0,1)) for x in xrange(n)]
 
 # get Gauss distrbution in range[-5,5]
-def getGaussSeq(sed,n, mean, var, bound):
+def get_gauss_seq(sed,n, mean, var, bound):
     seed(sed)
     gausslist = []
     while len(gausslist) < n:
@@ -24,7 +24,7 @@ def getGaussSeq(sed,n, mean, var, bound):
             gausslist.append(int(num))
     return gausslist
 
-def analyzeGauss(gausslist):
+def analyze_gauss(gausslist):
     a = [0]*11
     for i in gausslist:
         a[i+5] += 1;

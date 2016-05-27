@@ -61,9 +61,9 @@ def show_analysis(title, y1, y2, y3):
     x2 = [i for i in xrange(len(y2))]
     x3 = [i for i in xrange(len(y3))]
     plt.title(title)
-    plt.xlabel("image")
+    plt.xlabel("Detection value")
     plt.ylabel("q")
-    #plt.ylim(-0.1, 0.6)
+    #plt.xlim(-5, 0.6)
     plt.plot(x1, y1, 'rd', x2 , y2, 'b+', x3, y3, 'gs')
     plt.show() 
 

@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 from PIL import Image
-from myrand import random_walk, rand_sequece, getGaussSeq
+from myrand import random_walk, rand_sequece, get_gauss_seq
 from fs import getallfile
 from smpl_anlz import show_analysis, sample_analyze 
 import re
@@ -15,8 +15,8 @@ def embedmsg(sed, im, perc):
     rand_list = random_walk(sed, size, size-1)
     se = rand_sequece(sed, msglen, True)
     print "Len :%d" %len(se)
-    r = getGaussSeq(sed, size-1, 0, 1.5, 5)
-    s = getGaussSeq(2+sed, size-1, 0, 1.5, 5)
+    r = get_gauss_seq(sed, size-1, 0, 1.5, 5)
+    s = get_gauss_seq(2+sed, size-1, 0, 1.5, 5)
     i = 0
     # j is used to hide message when k = 0 and find next pos.
     j = 0
@@ -55,8 +55,8 @@ def extractmsg(sed, im, perc):
     size = w * h
     se = rand_sequece(sed, int(size*perc), True)
     rand_list = random_walk(sed, size, size-1)
-    r = getGaussSeq(sed, size-1, 0, 1.5, 5)
-    s = getGaussSeq(2+sed, size-1, 0, 1.5, 5)
+    r = get_gauss_seq(sed, size-1, 0, 1.5, 5)
+    s = get_gauss_seq(2+sed, size-1, 0, 1.5, 5)
     i = 0
     j = 0
     while i < len(se):
