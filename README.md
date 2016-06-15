@@ -18,3 +18,9 @@ Watermark embedding
 >  3. Improving blind embedding
 
 Linear Correlation 
+
+###Hw_4
+
+Detecting multi-symbol watermarks
+> 1. Trellis code
+> 2. Linear correlation
